@@ -78,6 +78,20 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("pagehide", () => {
       window.cancelAnimationFrame(animationFrame);
     }, { once: true });
+
+    const homeHero = document.getElementById("home");
+
+    if (homeHero && "IntersectionObserver" in window) {
+      const backgroundObserver = new IntersectionObserver(([entry]) => {
+        backgroundCanvas.classList.toggle("is-active", !entry.isIntersecting);
+      }, {
+        threshold: 0.15
+      });
+
+      backgroundObserver.observe(homeHero);
+    } else {
+      backgroundCanvas.classList.add("is-active");
+    }
   }
 
   const envelopeIntro = document.getElementById("envelope-intro");
