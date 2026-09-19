@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       [135, -45], [150, 20], [105, 88], [55, 125], [-12, 145],
       [-78, 112], [-135, 60], [-155, -18], [-42, -42], [48, 45]
     ];
+    let invitationOpening = false;
 
     const createSparkles = () => {
       if (!sparkleBurst || sparkleBurst.childElementCount) return;
@@ -119,8 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const openInvitation = () => {
-      if (envelopeIntro.classList.contains("is-opening")) return;
+      if (invitationOpening || envelopeIntro.classList.contains("is-opening")) return;
 
+      invitationOpening = true;
       createSparkles();
       envelopeIntro.classList.add("is-opening");
       const card = envelopeIntro.querySelector(".envelope__card");

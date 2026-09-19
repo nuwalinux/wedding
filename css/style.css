@@ -503,21 +503,35 @@ textarea {
 
 /* Full-screen invitation reveal */
 body.intro-locked {
+  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
+  padding-bottom: 0;
 }
 
-body.intro-locked .page-shell,
-body.intro-locked .bottom-nav {
-  opacity: 0;
-  visibility: hidden;
+body.intro-locked .page-shell {
+  min-height: 100vh;
+  opacity: 1;
+  visibility: visible;
   pointer-events: none;
 }
 
-body.is-unlocked .page-shell,
-body.is-unlocked .bottom-nav {
+body.intro-locked .page-shell > .initial-hidden {
+  display: none;
+}
+
+body.is-unlocked .page-shell {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+body.is-unlocked .page-shell > .initial-hidden {
+  display: block;
+}
+
+.initial-hidden {
+  display: block;
 }
 
 #bg-canvas {
@@ -885,14 +899,13 @@ body.is-unlocked .bottom-nav {
 }
 
 .page-shell {
-  opacity: 0;
-  visibility: hidden;
   transition: opacity 1s ease;
 }
 
-body.is-unlocked .page-shell {
-  opacity: 1;
-  visibility: visible;
+body.intro-locked .hero {
+  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .bottom-nav {
@@ -900,6 +913,12 @@ body.is-unlocked .page-shell {
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+body.is-unlocked .bottom-nav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 @media (max-width: 640px) {
