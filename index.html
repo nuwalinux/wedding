@@ -11,8 +11,31 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="intro-locked">
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <video class="site-background-video" id="site-background-video" autoplay loop muted playsinline aria-hidden="true">
+      <source src="images/animation_vdeo.mp4" type="video/mp4" />
+    </video>
+    <div class="site-background-overlay" aria-hidden="true"></div>
     <section class="envelope-intro" id="envelope-intro" aria-label="Open wedding invitation">
       <div class="floral-line-art" aria-hidden="true"></div>
+      <div class="floral-corners" aria-hidden="true">
+        <svg class="floral-corner floral-corner--tl" viewBox="0 0 220 220" role="presentation">
+          <path d="M8 212C15 112 64 41 212 8M34 177C69 147 86 92 79 48M66 139C112 128 150 91 161 42M35 175C22 139 30 115 55 101M79 48C50 32 30 37 15 62M161 42C143 17 124 13 103 20M112 128C138 143 164 143 188 126" />
+          <path d="M55 101c-21-9-37-1-43 17 20 4 35-2 43-17ZM103 20c-3-18 7-31 24-34 4 17-4 29-24 34ZM188 126c18 7 28 20 23 35-18-5-25-17-23-35Z" />
+        </svg>
+        <svg class="floral-corner floral-corner--tr" viewBox="0 0 220 220" role="presentation">
+          <path d="M8 212C15 112 64 41 212 8M34 177C69 147 86 92 79 48M66 139C112 128 150 91 161 42M35 175C22 139 30 115 55 101M79 48C50 32 30 37 15 62M161 42C143 17 124 13 103 20M112 128C138 143 164 143 188 126" />
+          <path d="M55 101c-21-9-37-1-43 17 20 4 35-2 43-17ZM103 20c-3-18 7-31 24-34 4 17-4 29-24 34ZM188 126c18 7 28 20 23 35-18-5-25-17-23-35Z" />
+        </svg>
+        <svg class="floral-corner floral-corner--bl" viewBox="0 0 220 220" role="presentation">
+          <path d="M8 212C15 112 64 41 212 8M34 177C69 147 86 92 79 48M66 139C112 128 150 91 161 42M35 175C22 139 30 115 55 101M79 48C50 32 30 37 15 62M161 42C143 17 124 13 103 20M112 128C138 143 164 143 188 126" />
+          <path d="M55 101c-21-9-37-1-43 17 20 4 35-2 43-17ZM103 20c-3-18 7-31 24-34 4 17-4 29-24 34ZM188 126c18 7 28 20 23 35-18-5-25-17-23-35Z" />
+        </svg>
+        <svg class="floral-corner floral-corner--br" viewBox="0 0 220 220" role="presentation">
+          <path d="M8 212C15 112 64 41 212 8M34 177C69 147 86 92 79 48M66 139C112 128 150 91 161 42M35 175C22 139 30 115 55 101M79 48C50 32 30 37 15 62M161 42C143 17 124 13 103 20M112 128C138 143 164 143 188 126" />
+          <path d="M55 101c-21-9-37-1-43 17 20 4 35-2 43-17ZM103 20c-3-18 7-31 24-34 4 17-4 29-24 34ZM188 126c18 7 28 20 23 35-18-5-25-17-23-35Z" />
+        </svg>
+      </div>
       <div class="envelope">
         <div class="envelope__back"></div>
         <div class="envelope__card">
@@ -24,13 +47,13 @@
         <button class="wax-seal" id="open-envelope" type="button" aria-label="Open invitation">
           <span>Ｎ<br />Ｔ</span>
         </button>
+        <div class="sparkle-burst" id="sparkle-burst" aria-hidden="true"></div>
       </div>
-      <p class="envelope-hint">Tap the seal to open</p>
+      <button class="envelope-hint" id="open-envelope-text" type="button">TAP THE SEAL TO OPEN</button>
     </section>
 
     <div class="page-shell">
       <header class="hero" id="home">
-        <div class="hero__overlay"></div>
         <div class="hero__content">
           <p class="eyebrow">THE WEDDING OF</p>
           <h1>Nuwan <span>&</span> Tharushi</h1>
@@ -89,42 +112,6 @@
           </div>
         </section>
 
-        <section class="section story" id="story">
-          <div class="section-head">
-            <p class="section-label">Our Story</p>
-            <h2>A Journey Together</h2>
-          </div>
-
-          <div class="story__timeline" aria-label="Our story timeline">
-            <div class="story__item">
-              <div class="story__dot" aria-hidden="true"></div>
-              <div class="story__content">
-                <span class="story__year">2022</span>
-                <h3>THE FIRST HELLO</h3>
-                <p>Our paths crossed.</p>
-              </div>
-            </div>
-
-            <div class="story__item">
-              <div class="story__dot" aria-hidden="true"></div>
-              <div class="story__content">
-                <span class="story__year">2024</span>
-                <h3>THE PROPOSAL</h3>
-                <p>She said yes.</p>
-              </div>
-            </div>
-
-            <div class="story__item">
-              <div class="story__dot" aria-hidden="true"></div>
-              <div class="story__content">
-                <span class="story__year">2026</span>
-                <h3>FOREVER BEGINS</h3>
-                <p>We tie the knot.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section class="section intro">
           <p class="section-label">The Celebration</p>
           <h2>We invite you to celebrate our joy</h2>
@@ -133,43 +120,6 @@
             Your love and support mean the world to us, and we would be honored to share
             this unforgettable day with you.
           </p>
-        </section>
-
-        <section class="section wedding-timeline" id="timeline">
-          <div class="timeline-header">
-            <p class="section-label">A Day to Remember</p>
-            <h2>Nuwan &amp; Tharushi</h2>
-            <p class="timeline-header__title">Wedding Timeline</p>
-          </div>
-
-          <div class="timeline-cards" aria-label="Wedding day timeline">
-            <article class="timeline-card">
-              <span class="timeline-card__icon" aria-hidden="true">♜</span>
-              <div>
-                <p class="timeline-card__time">09:00 AM</p>
-                <h3>The Ceremony</h3>
-                <p>Join us as we exchange vows and begin forever together.</p>
-              </div>
-            </article>
-
-            <article class="timeline-card">
-              <span class="timeline-card__icon" aria-hidden="true">✦</span>
-              <div>
-                <p class="timeline-card__time">01:00 PM</p>
-                <h3>Grand Dinner</h3>
-                <p>Enjoy a beautiful meal shared with family and friends.</p>
-              </div>
-            </article>
-
-            <article class="timeline-card">
-              <span class="timeline-card__icon" aria-hidden="true">♫</span>
-              <div>
-                <p class="timeline-card__time">06:00 PM</p>
-                <h3>The Party</h3>
-                <p>Raise a glass, dance freely, and celebrate our love.</p>
-              </div>
-            </article>
-          </div>
         </section>
 
         <section class="section details" id="events">
@@ -183,17 +133,20 @@
               <span class="detail-card__icon" aria-hidden="true">✦</span>
               <p class="detail-card__kicker">10th December 2026</p>
               <h3>Wedding Ceremony</h3>
-              <p class="ceremony-card__time">10:00 AM</p>
+              <p class="ceremony-card__time">09:00 AM</p>
+              <span class="ceremony-card__separator" aria-hidden="true">✦</span>
 
               <dl class="ceremony-card__details">
                 <div>
                   <dt>Venue</dt>
                   <dd>Sanctuary Hotel - Kaduwela</dd>
                 </div>
+                <span class="ceremony-card__separator" aria-hidden="true">◇</span>
                 <div>
                   <dt>Location</dt>
                   <dd>Kaduwela, Sri Lanka</dd>
                 </div>
+                <span class="ceremony-card__separator" aria-hidden="true">◇</span>
                 <div>
                   <dt>Attire</dt>
                   <dd>Formal</dd>
@@ -204,41 +157,16 @@
                 <a class="ceremony-action ceremony-action--gold" href="https://www.google.com/maps/place/Sanctuary+Lodge/@6.9177529,80.0069235,17z/" target="_blank" rel="noopener">
                   <span aria-hidden="true">⌖</span> Google Maps
                 </a>
-                <a class="ceremony-action ceremony-action--outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Nuwan+%26+Tharushi+Wedding+Ceremony&amp;dates=20261210T043000Z/20261210T063000Z&amp;details=Wedding+ceremony+for+Nuwan+%26+Tharushi&amp;location=Sanctuary+Hotel+-+Kaduwela" target="_blank" rel="noopener">
+                <a class="ceremony-action ceremony-action--outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Nuwan+%26+Tharushi+Wedding+Ceremony&amp;dates=20261210T033000Z/20261210T053000Z&amp;details=Wedding+ceremony+for+Nuwan+%26+Tharushi&amp;location=Sanctuary+Hotel+-+Kaduwela" target="_blank" rel="noopener">
                   <span aria-hidden="true">＋</span> Add to Calendar
                 </a>
               </div>
             </article>
 
-            <article class="detail-card detail-card--featured">
-              <span class="detail-card__icon">✧</span>
-              <h3>RECEPTION</h3>
-              <p class="time">10th December 2026</p>
-              <p>1:00 PM</p>
-              <p>Sanctuary Hotel - Kaduwela</p>
-            </article>
           </div>
 
-          <div class="map-link-wrap">
-            <a class="map-link" href="https://www.google.com/maps/place/Sanctuary+Lodge/@6.9177529,80.0069235,17z/" target="_blank" rel="noopener">View Location on Map</a>
-          </div>
-        </section>
-
-        <section class="section map-section" id="map">
-          <div class="section-head">
-            <p class="section-label">Location</p>
-            <h2>Find Us</h2>
-          </div>
-
-          <div class="map-card">
-            <div class="map-card__visual" aria-hidden="true">
-              <span>📍</span>
-            </div>
-            <div class="map-card__content">
-              <h3>Rosewood Estate</h3>
-              <p>27 Willow Lane, New York, NY</p>
-              <a href="https://maps.google.com" target="_blank" rel="noopener">View Map</a>
-            </div>
+          <div class="map-embed-wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.7726788060318!2d80.0043485756813!3d6.917758218454825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25911b0316a3d%3A0x14943debd9fcadfd!2sSanctuary%20Lodge!5e0!3m2!1sen!2slk!4v1789831155217!5m2!1sen!2slk" width="100%" height="300" style="border:0; border-radius: 12px; margin-top: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Sanctuary Lodge location"></iframe>
           </div>
         </section>
 
@@ -300,10 +228,6 @@
       <a href="#events" class="nav-item" aria-label="Events">
         <span class="nav-icon">✦</span>
         <span>Events</span>
-      </a>
-      <a href="#map" class="nav-item" aria-label="Map">
-        <span class="nav-icon">⌖</span>
-        <span>Map</span>
       </a>
       <a href="#rsvp" class="nav-item" aria-label="RSVP">
         <span class="nav-icon">✉</span>

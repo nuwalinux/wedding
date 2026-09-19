@@ -1,20 +1,135 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const backgroundCanvas = document.getElementById("bg-canvas");
+
+  if (backgroundCanvas) {
+    const context = backgroundCanvas.getContext("2d");
+    const particles = [];
+    let canvasWidth = 0;
+    let canvasHeight = 0;
+    let animationFrame = 0;
+
+    const resizeCanvas = () => {
+      const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+      canvasWidth = window.innerWidth;
+      canvasHeight = window.innerHeight;
+      backgroundCanvas.width = canvasWidth * pixelRatio;
+      backgroundCanvas.height = canvasHeight * pixelRatio;
+      context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    };
+
+    const createParticle = (initial = false) => ({
+      x: Math.random() * canvasWidth,
+      y: initial ? Math.random() * canvasHeight : canvasHeight + 30,
+      radius: 1.5 + Math.random() * 4.5,
+      speed: 0.08 + Math.random() * 0.24,
+      drift: (Math.random() - 0.5) * 0.18,
+      phase: Math.random() * Math.PI * 2,
+      opacity: 0.08 + Math.random() * 0.2
+    });
+
+    const seedParticles = () => {
+      particles.length = 0;
+      const particleCount = Math.min(70, Math.max(28, Math.floor(canvasWidth / 18)));
+      for (let index = 0; index < particleCount; index += 1) {
+        particles.push(createParticle(true));
+      }
+    };
+
+    const draw = (time) => {
+      context.clearRect(0, 0, canvasWidth, canvasHeight);
+
+      particles.forEach((particle) => {
+        particle.y -= particle.speed;
+        particle.x += particle.drift + Math.sin(time * 0.0004 + particle.phase) * 0.08;
+
+        if (particle.y < -30) {
+          Object.assign(particle, createParticle());
+        }
+
+        const glow = context.createRadialGradient(
+          particle.x,
+          particle.y,
+          0,
+          particle.x,
+          particle.y,
+          particle.radius * 5
+        );
+        glow.addColorStop(0, `rgba(212, 175, 55, ${particle.opacity})`);
+        glow.addColorStop(0.35, `rgba(243, 221, 158, ${particle.opacity * 0.45})`);
+        glow.addColorStop(1, "rgba(243, 221, 158, 0)");
+
+        context.beginPath();
+        context.fillStyle = glow;
+        context.arc(particle.x, particle.y, particle.radius * 5, 0, Math.PI * 2);
+        context.fill();
+      });
+
+      animationFrame = window.requestAnimationFrame(draw);
+    };
+
+    resizeCanvas();
+    seedParticles();
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      seedParticles();
+    });
+    animationFrame = window.requestAnimationFrame(draw);
+
+    window.addEventListener("pagehide", () => {
+      window.cancelAnimationFrame(animationFrame);
+    }, { once: true });
+  }
+
   const envelopeIntro = document.getElementById("envelope-intro");
   const openEnvelopeButton = document.getElementById("open-envelope");
+  const openEnvelopeText = document.getElementById("open-envelope-text");
 
-  if (envelopeIntro && openEnvelopeButton) {
-    openEnvelopeButton.addEventListener("click", () => {
+  if (envelopeIntro && (openEnvelopeButton || openEnvelopeText)) {
+    const sparkleBurst = envelopeIntro.querySelector("#sparkle-burst");
+    const sparkleDirections = [
+      [-110, -95], [-70, -145], [-20, -120], [38, -150], [92, -105],
+      [135, -45], [150, 20], [105, 88], [55, 125], [-12, 145],
+      [-78, 112], [-135, 60], [-155, -18], [-42, -42], [48, 45]
+    ];
+
+    const createSparkles = () => {
+      if (!sparkleBurst || sparkleBurst.childElementCount) return;
+      sparkleDirections.forEach(([x, y], index) => {
+        const sparkle = document.createElement("span");
+        sparkle.style.setProperty("--sparkle-x", `${x}px`);
+        sparkle.style.setProperty("--sparkle-y", `${y}px`);
+        sparkle.style.animationDelay = `${index * 22}ms`;
+        sparkleBurst.appendChild(sparkle);
+      });
+    };
+
+    const openInvitation = () => {
       if (envelopeIntro.classList.contains("is-opening")) return;
 
+      createSparkles();
       envelopeIntro.classList.add("is-opening");
-      window.setTimeout(() => {
+      const card = envelopeIntro.querySelector(".envelope__card");
+      let revealComplete = false;
+
+      const revealWebsite = () => {
+        if (revealComplete) return;
+        revealComplete = true;
         document.body.classList.remove("intro-locked");
         document.body.classList.add("is-unlocked");
         envelopeIntro.classList.add("is-complete");
         window.dispatchEvent(new Event("invitation:unlocked"));
         window.setTimeout(() => envelopeIntro.remove(), 950);
-      }, 2700);
-    }, { once: true });
+      };
+
+      window.setTimeout(() => {
+        envelopeIntro.classList.add("is-card-expanded");
+      }, 1450);
+      window.setTimeout(revealWebsite, 2400);
+    };
+
+    [openEnvelopeButton, openEnvelopeText].forEach((button) => {
+      if (button) button.addEventListener("click", openInvitation, { once: true });
+    });
   }
 
   const weddingDate = new Date("2026-12-10T09:00:00+05:30").getTime();
