@@ -1,199 +1,316 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#4c1022">
-  <meta name="description" content="The wedding invitation of Nuwan and Tharushi — 10 December 2026.">
-  <title>Nuwan & Tharushi | 10 December 2026</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Sinhala:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <div class="preloader" id="preloader">
-    <div class="preloader__inner">
-      <span class="eyebrow" data-i18n="openingKicker">Together with our families</span>
-      <h1>Nuwan <span>&</span> Tharushi</h1>
-      <p class="preloader__date">10 <i>·</i> 12 <i>·</i> 2026</p>
-      <button class="button button--gold" id="openInvitation" type="button">
-        <span data-i18n="openInvitation">Open Invitation</span><span class="button__arrow">↗</span>
-      </button>
-    </div>
-    <div class="preloader__ornament" aria-hidden="true"></div>
-  </div>
-
-  <audio id="backgroundMusic" loop preload="none" aria-label="Background music">
-    <source src="audio/wedding-music.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="site-shell" id="siteShell" aria-hidden="true">
-    <header class="topbar">
-      <a class="monogram" href="#home" aria-label="Nuwan and Tharushi home">N<span>&</span>T</a>
-      <nav class="topbar__nav" aria-label="Main navigation">
-        <a href="#story" data-i18n="navStory">Our Story</a>
-        <a href="#details" data-i18n="navDetails">Details</a>
-        <a href="#gallery" data-i18n="navGallery">Gallery</a>
-        <a href="#rsvp" data-i18n="navRsvp">RSVP</a>
-      </nav>
-      <div class="topbar__actions">
-        <button class="language-switcher" id="languageToggle" type="button" aria-label="Switch language">
-          <span class="language-switcher__active">EN</span><span class="language-switcher__divider">/</span><span>සිං</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Wedding invitation for Emma and Daniel." />
+    <title>Emma & Daniel | Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="intro-locked">
+    <section class="envelope-intro" id="envelope-intro" aria-label="Open wedding invitation">
+      <div class="floral-line-art" aria-hidden="true"></div>
+      <div class="envelope">
+        <div class="envelope__back"></div>
+        <div class="envelope__card">
+          <p>You're cordially invited</p>
+        </div>
+        <div class="envelope__front"></div>
+        <div class="envelope__flap"></div>
+        <div class="envelope__seal-shadow"></div>
+        <button class="wax-seal" id="open-envelope" type="button" aria-label="Open invitation">
+          <span>Ｎ<br />Ｔ</span>
         </button>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
       </div>
-    </header>
+      <p class="envelope-hint">Tap the seal to open</p>
+    </section>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero__image"></div>
-        <div class="hero__veil"></div>
-        <div class="hero__content reveal">
-          <p class="eyebrow" data-i18n="heroKicker">A celebration of love</p>
-          <h2>Nuwan <span>&</span><br>Tharushi</h2>
-          <div class="hero__rule"></div>
-          <p class="hero__date" data-i18n="heroDate">10 December 2026</p>
-          <a class="scroll-cue" href="#welcome"><span data-i18n="discover">Discover our story</span><span class="scroll-cue__line"></span></a>
+    <div class="page-shell">
+      <header class="hero" id="home">
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <p class="eyebrow">THE WEDDING OF</p>
+          <h1>Nuwan <span>&</span> Tharushi</h1>
+          <p class="hero__date">THURSDAY, 10TH DECEMBER 2026</p>
+          <button class="hero__button" type="button">OPEN INVITATION</button>
         </div>
-        <div class="hero__side-note">Kaduwela <span>•</span> Sri Lanka</div>
-      </section>
+      </header>
 
-      <section class="section welcome" id="welcome">
-        <div class="section__number">01 <span>—</span></div>
-        <div class="flourish flourish--left" aria-hidden="true">❧</div>
-        <div class="welcome__content reveal">
-          <p class="eyebrow" data-i18n="welcomeKicker">With joyful hearts</p>
-          <h2 data-i18n="welcomeTitle">Together with our families</h2>
-          <p class="lead" data-i18n="welcomeLead">we invite you to celebrate the beginning of our forever.</p>
-          <p data-i18n="welcomeText">After seven beautiful years together, we are taking the next step in our journey, surrounded by the people who have loved and supported us every step of the way.</p>
-          <div class="signature">N <span>&</span> T</div>
-        </div>
-      </section>
-
-      <section class="countdown-band">
-        <div class="countdown-band__inner reveal">
-          <p class="eyebrow" data-i18n="countdownKicker">Until we say “I do”</p>
+      <section class="countdown-section" aria-label="Wedding countdown">
+        <div class="countdown-wrap">
+          <p class="section-label">Countdown</p>
           <div class="countdown" id="countdown">
-            <div class="countdown__item"><strong id="days">00</strong><span data-i18n="days">Days</span></div>
-            <div class="countdown__item"><strong id="hours">00</strong><span data-i18n="hours">Hours</span></div>
-            <div class="countdown__item"><strong id="minutes">00</strong><span data-i18n="minutes">Minutes</span></div>
-            <div class="countdown__item"><strong id="seconds">00</strong><span data-i18n="seconds">Seconds</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section story" id="story">
-        <div class="section__number">02 <span>—</span></div>
-        <div class="story__layout">
-          <div class="story__image-frame reveal reveal--left"><img src="images/IMG_6940.jpg" alt="Nuwan smiling outdoors" loading="lazy"></div>
-          <div class="story__copy reveal">
-            <p class="eyebrow" data-i18n="storyKicker">Our story</p>
-            <h2 data-i18n="storyTitle">Seven Years,<br><em>and Counting...</em></h2>
-            <p data-i18n="storyText">What began seven years ago as a beautiful chapter has grown into a story we want to keep writing together. Through countless memories, laughter, challenges and beautiful moments, we found our way to each other. Now, after seven wonderful years, we are ready to begin our forever.</p>
-            <span class="script-initial">N</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="section details-section" id="details">
-        <div class="section__number">03 <span>—</span></div>
-        <div class="section-heading reveal">
-          <p class="eyebrow" data-i18n="detailsKicker">The celebration</p>
-          <h2 data-i18n="detailsTitle">Join us on our<br><em>most beautiful day</em></h2>
-        </div>
-        <div class="event-grid">
-          <article class="event-card reveal">
-            <div class="event-card__icon">◌</div>
-            <p class="eyebrow" data-i18n="ceremony">The Ceremony</p>
-            <h3>09:00 <small>AM</small></h3>
-            <p class="event-card__venue">Sanctuary Lodge<br><span>Kaduwela, Sri Lanka</span></p>
-            <div class="event-card__line"></div>
-            <p class="event-card__date" data-i18n="eventDate">Thursday, 10 December 2026</p>
-          </article>
-          <article class="event-card event-card--dark reveal">
-            <div class="event-card__icon">✦</div>
-            <p class="eyebrow" data-i18n="reception">The Reception</p>
-            <h3>09:30 <small data-i18n="onwards">AM onwards</small></h3>
-            <p class="event-card__venue">Sanctuary Lodge<br><span>Kaduwela, Sri Lanka</span></p>
-            <div class="event-card__line"></div>
-            <p class="event-card__date" data-i18n="celebrateWithUs">An afternoon of love & celebration</p>
-          </article>
-        </div>
-        <a class="text-link reveal" href="https://www.google.com/maps/search/?api=1&query=Sanctuary+Lodge%2C+Kaduwela" target="_blank" rel="noopener">
-          <span data-i18n="getDirections">Get directions</span><span>↗</span>
-        </a>
-      </section>
-
-      <section class="section family">
-        <div class="family__wash"></div>
-        <div class="section__number">04 <span>—</span></div>
-        <div class="section-heading reveal">
-          <p class="eyebrow" data-i18n="familyKicker">Our beloved families</p>
-          <h2 data-i18n="familyTitle">With the blessings<br><em>of our parents</em></h2>
-        </div>
-        <div class="family-grid reveal">
-          <div class="family-column">
-            <p class="family-column__label" data-i18n="groomsParents">Groom's parents</p>
-            <h3>Asoka <span>&</span><br>Palitha</h3>
-          </div>
-          <div class="family-divider">✦</div>
-          <div class="family-column">
-            <p class="family-column__label" data-i18n="bridesParents">Bride's parents</p>
-            <h3>Vijitha <span>&</span><br>Anura</h3>
-          </div>
-        </div>
-      </section>
-
-      <section class="section gallery-section" id="gallery">
-        <div class="section__number">05 <span>—</span></div>
-        <div class="section-heading reveal">
-          <p class="eyebrow" data-i18n="galleryKicker">A few favourite moments</p>
-          <h2 data-i18n="galleryTitle">Love, laughter<br><em>& memories</em></h2>
-        </div>
-        <div class="gallery-grid">
-          <button class="gallery-item gallery-item--tall reveal" type="button"><img src="images/IMG_6599.jpg" alt="Tharushi portrait" loading="lazy"></button>
-          <button class="gallery-item reveal" type="button"><img src="images/IMG_6940.jpg" alt="Nuwan portrait" loading="lazy"></button>
-          <button class="gallery-item gallery-item--wide reveal" type="button"><img src="images/IMG_7394.jpg" alt="A treasured moment together" loading="lazy"></button>
-          <button class="gallery-item reveal" type="button"><img src="images/IMG_7683.jpg" alt="Nuwan and Tharushi together" loading="lazy"></button>
-        </div>
-      </section>
-
-      <section class="section rsvp-section" id="rsvp">
-        <div class="rsvp__ornament" aria-hidden="true"></div>
-        <div class="section__number">06 <span>—</span></div>
-        <div class="rsvp__layout">
-          <div class="rsvp__intro reveal">
-            <p class="eyebrow" data-i18n="rsvpKicker">We hope you can join us</p>
-            <h2 data-i18n="rsvpTitle">Will you be<br><em>there?</em></h2>
-            <p data-i18n="rsvpText">Your presence would make our day even more special. Kindly let us know by sending us a message on WhatsApp.</p>
-            <div class="rsvp__actions">
-              <button class="button button--outline" id="calendarButton" type="button"><span data-i18n="addCalendar">Add to calendar</span><span>＋</span></button>
-              <button class="button button--outline" id="shareButton" type="button"><span data-i18n="shareInvitation">Share invitation</span><span>↗</span></button>
+            <div class="countdown__item">
+              <span class="countdown__value" id="days">00</span>
+              <span class="countdown__label">Days</span>
+            </div>
+            <div class="countdown__item">
+              <span class="countdown__value" id="hours">00</span>
+              <span class="countdown__label">Hours</span>
+            </div>
+            <div class="countdown__item">
+              <span class="countdown__value" id="minutes">00</span>
+              <span class="countdown__label">Minutes</span>
+            </div>
+            <div class="countdown__item">
+              <span class="countdown__value" id="seconds">00</span>
+              <span class="countdown__label">Seconds</span>
             </div>
           </div>
-          <form class="rsvp-form reveal" id="rsvpForm">
-            <label><span data-i18n="yourName">Your name</span><input type="text" name="name" autocomplete="name" required placeholder="e.g. Amaya Perera"></label>
-            <label><span data-i18n="attendance">Will you attend?</span><select name="attendance" required><option value="" data-i18n="selectOne">Please select</option><option value="Yes" data-i18n="attendingYes">Joyfully attending</option><option value="No" data-i18n="attendingNo">Regretfully declining</option></select></label>
-            <label><span data-i18n="guests">Number of guests</span><input type="number" name="guests" min="1" max="10" value="1" required></label>
-            <label><span data-i18n="message">A little message <small>(optional)</small></span><textarea name="message" rows="3" placeholder="Leave a note for the couple..."></textarea></label>
-            <button class="button button--gold button--full" type="submit"><span data-i18n="sendRsvp">Send RSVP via WhatsApp</span><span>↗</span></button>
-          </form>
         </div>
       </section>
-    </main>
-    <footer class="footer">
-      <div class="footer__monogram">N <span>&</span> T</div>
-      <p data-i18n="footerText">With love, Nuwan & Tharushi</p>
-      <p class="footer__date">10 · 12 · 2026</p>
-    </footer>
-  </div>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Expanded photo">
-    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close image">×</button>
-    <img id="lightboxImage" src="" alt="">
-  </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="js/app.js"></script>
-</body>
+      <main>
+        <section class="invitation section">
+          <div class="invitation__inner">
+            <p class="section-label">With joy in our hearts</p>
+            <h2>Nuwan &amp; Tharushi</h2>
+
+            <div class="invitation__parents">
+              <div class="invitation__parent">
+                <span>Son of</span>
+                <strong>Ashoka &amp; Palitha</strong>
+              </div>
+              <div class="invitation__divider" aria-hidden="true"></div>
+              <div class="invitation__parent">
+                <span>Daughter of</span>
+                <strong>Vijitha &amp; Anura</strong>
+              </div>
+            </div>
+
+            <div class="invitation__date-wrap" aria-label="Wedding date">
+              <span class="invitation__line"></span>
+              <p>DECEMBER 10 2026</p>
+              <span class="invitation__line"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="section story" id="story">
+          <div class="section-head">
+            <p class="section-label">Our Story</p>
+            <h2>A Journey Together</h2>
+          </div>
+
+          <div class="story__timeline" aria-label="Our story timeline">
+            <div class="story__item">
+              <div class="story__dot" aria-hidden="true"></div>
+              <div class="story__content">
+                <span class="story__year">2022</span>
+                <h3>THE FIRST HELLO</h3>
+                <p>Our paths crossed.</p>
+              </div>
+            </div>
+
+            <div class="story__item">
+              <div class="story__dot" aria-hidden="true"></div>
+              <div class="story__content">
+                <span class="story__year">2024</span>
+                <h3>THE PROPOSAL</h3>
+                <p>She said yes.</p>
+              </div>
+            </div>
+
+            <div class="story__item">
+              <div class="story__dot" aria-hidden="true"></div>
+              <div class="story__content">
+                <span class="story__year">2026</span>
+                <h3>FOREVER BEGINS</h3>
+                <p>We tie the knot.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section intro">
+          <p class="section-label">The Celebration</p>
+          <h2>We invite you to celebrate our joy</h2>
+          <p>
+            We are delighted to have you join us as we begin our next chapter together.
+            Your love and support mean the world to us, and we would be honored to share
+            this unforgettable day with you.
+          </p>
+        </section>
+
+        <section class="section wedding-timeline" id="timeline">
+          <div class="timeline-header">
+            <p class="section-label">A Day to Remember</p>
+            <h2>Nuwan &amp; Tharushi</h2>
+            <p class="timeline-header__title">Wedding Timeline</p>
+          </div>
+
+          <div class="timeline-cards" aria-label="Wedding day timeline">
+            <article class="timeline-card">
+              <span class="timeline-card__icon" aria-hidden="true">♜</span>
+              <div>
+                <p class="timeline-card__time">09:00 AM</p>
+                <h3>The Ceremony</h3>
+                <p>Join us as we exchange vows and begin forever together.</p>
+              </div>
+            </article>
+
+            <article class="timeline-card">
+              <span class="timeline-card__icon" aria-hidden="true">✦</span>
+              <div>
+                <p class="timeline-card__time">01:00 PM</p>
+                <h3>Grand Dinner</h3>
+                <p>Enjoy a beautiful meal shared with family and friends.</p>
+              </div>
+            </article>
+
+            <article class="timeline-card">
+              <span class="timeline-card__icon" aria-hidden="true">♫</span>
+              <div>
+                <p class="timeline-card__time">06:00 PM</p>
+                <h3>The Party</h3>
+                <p>Raise a glass, dance freely, and celebrate our love.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section details" id="events">
+          <div class="section-head">
+            <p class="section-label">Wedding Events</p>
+            <h2>Celebration Details</h2>
+          </div>
+
+          <div class="details-grid">
+            <article class="detail-card ceremony-card">
+              <span class="detail-card__icon" aria-hidden="true">✦</span>
+              <p class="detail-card__kicker">10th December 2026</p>
+              <h3>Wedding Ceremony</h3>
+              <p class="ceremony-card__time">10:00 AM</p>
+
+              <dl class="ceremony-card__details">
+                <div>
+                  <dt>Venue</dt>
+                  <dd>Sanctuary Hotel - Kaduwela</dd>
+                </div>
+                <div>
+                  <dt>Location</dt>
+                  <dd>Kaduwela, Sri Lanka</dd>
+                </div>
+                <div>
+                  <dt>Attire</dt>
+                  <dd>Formal</dd>
+                </div>
+              </dl>
+
+              <div class="ceremony-card__actions">
+                <a class="ceremony-action ceremony-action--gold" href="https://www.google.com/maps/place/Sanctuary+Lodge/@6.9177529,80.0069235,17z/" target="_blank" rel="noopener">
+                  <span aria-hidden="true">⌖</span> Google Maps
+                </a>
+                <a class="ceremony-action ceremony-action--outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Nuwan+%26+Tharushi+Wedding+Ceremony&amp;dates=20261210T043000Z/20261210T063000Z&amp;details=Wedding+ceremony+for+Nuwan+%26+Tharushi&amp;location=Sanctuary+Hotel+-+Kaduwela" target="_blank" rel="noopener">
+                  <span aria-hidden="true">＋</span> Add to Calendar
+                </a>
+              </div>
+            </article>
+
+            <article class="detail-card detail-card--featured">
+              <span class="detail-card__icon">✧</span>
+              <h3>RECEPTION</h3>
+              <p class="time">10th December 2026</p>
+              <p>1:00 PM</p>
+              <p>Sanctuary Hotel - Kaduwela</p>
+            </article>
+          </div>
+
+          <div class="map-link-wrap">
+            <a class="map-link" href="https://www.google.com/maps/place/Sanctuary+Lodge/@6.9177529,80.0069235,17z/" target="_blank" rel="noopener">View Location on Map</a>
+          </div>
+        </section>
+
+        <section class="section map-section" id="map">
+          <div class="section-head">
+            <p class="section-label">Location</p>
+            <h2>Find Us</h2>
+          </div>
+
+          <div class="map-card">
+            <div class="map-card__visual" aria-hidden="true">
+              <span>📍</span>
+            </div>
+            <div class="map-card__content">
+              <h3>Rosewood Estate</h3>
+              <p>27 Willow Lane, New York, NY</p>
+              <a href="https://maps.google.com" target="_blank" rel="noopener">View Map</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="section gallery-section">
+          <div class="section-head">
+            <p class="section-label">Our Gallery</p>
+            <h2>Moments We Cherish</h2>
+          </div>
+
+          <div class="gallery-grid" aria-label="Wedding gallery">
+            <img src="images/IMG_6599.jpg" alt="Couple portrait" />
+            <img src="images/IMG_6940.jpg" alt="Couple outdoors" />
+            <img src="images/IMG_7394.jpg" alt="Together in nature" />
+            <img src="images/IMG_7683.jpg" alt="Couple smiling" />
+          </div>
+        </section>
+
+        <section class="section rsvp" id="rsvp">
+          <div class="section-head">
+            <p class="section-label">Kindly Reply</p>
+            <h2>RSVP</h2>
+          </div>
+
+          <form class="rsvp-form" id="wedding-rsvp-form">
+            <label>
+              Full Name
+              <input type="text" name="name" placeholder="Your name" required />
+            </label>
+
+            <div class="rsvp-choice">
+              <label class="radio-option">
+                <input type="radio" name="attendance" value="accept" />
+                <span>Joyfully Accept</span>
+              </label>
+
+              <label class="radio-option">
+                <input type="radio" name="attendance" value="decline" />
+                <span>Regretfully Decline</span>
+              </label>
+            </div>
+
+            <div class="guest-counter" aria-label="Guest counter">
+              <button type="button" class="guest-button" data-action="decrease" aria-label="Decrease guests">-</button>
+              <input type="number" name="guests" value="1" min="1" max="10" readonly />
+              <button type="button" class="guest-button" data-action="increase" aria-label="Increase guests">+</button>
+            </div>
+
+            <button type="submit" class="button navy-button">SEND RSVP</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <nav class="bottom-nav" aria-label="Bottom navigation">
+      <a href="#home" class="nav-item active" aria-label="Home">
+        <span class="nav-icon">⌂</span>
+        <span>Home</span>
+      </a>
+      <a href="#events" class="nav-item" aria-label="Events">
+        <span class="nav-icon">✦</span>
+        <span>Events</span>
+      </a>
+      <a href="#map" class="nav-item" aria-label="Map">
+        <span class="nav-icon">⌖</span>
+        <span>Map</span>
+      </a>
+      <a href="#rsvp" class="nav-item" aria-label="RSVP">
+        <span class="nav-icon">✉</span>
+        <span>RSVP</span>
+      </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+  </body>
 </html>
