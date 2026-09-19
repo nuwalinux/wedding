@@ -97,8 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const envelopeIntro = document.getElementById("envelope-intro");
   const openEnvelopeButton = document.getElementById("open-envelope");
   const openEnvelopeText = document.getElementById("open-envelope-text");
+  const openEnvelopeHero = document.getElementById("open-envelope-hero");
 
-  if (envelopeIntro && (openEnvelopeButton || openEnvelopeText)) {
+  if (envelopeIntro && (openEnvelopeButton || openEnvelopeText || openEnvelopeHero)) {
     const sparkleBurst = envelopeIntro.querySelector("#sparkle-burst");
     const sparkleDirections = [
       [-110, -95], [-70, -145], [-20, -120], [38, -150], [92, -105],
@@ -141,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.setTimeout(revealWebsite, 2400);
     };
 
-    [openEnvelopeButton, openEnvelopeText].forEach((button) => {
+    [openEnvelopeButton, openEnvelopeText, openEnvelopeHero].forEach((button) => {
       if (button) button.addEventListener("click", openInvitation, { once: true });
     });
   }

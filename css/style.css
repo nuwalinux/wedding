@@ -506,6 +506,20 @@ body.intro-locked {
   overflow: hidden;
 }
 
+body.intro-locked .page-shell,
+body.intro-locked .bottom-nav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.is-unlocked .page-shell,
+body.is-unlocked .bottom-nav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
 #bg-canvas {
   position: fixed;
   top: 0;
@@ -879,6 +893,13 @@ body.intro-locked {
 body.is-unlocked .page-shell {
   opacity: 1;
   visibility: visible;
+}
+
+.bottom-nav {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 @media (max-width: 640px) {
